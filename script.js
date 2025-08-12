@@ -260,28 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(rippleStyle);
 });
 
-// Lazy loading for images
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.style.opacity = '0';
-                img.style.transition = 'opacity 0.3s ease';
-                
-                img.onload = () => {
-                    img.style.opacity = '1';
-                };
-                
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-});
+
 
 // Performance optimization: Throttle scroll events
 function throttle(func, limit) {
